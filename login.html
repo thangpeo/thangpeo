@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/font/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab-item active">Đăng nhập</div>
+        <div class="tab-item">Đăng ký</div>
+        <div class="tab-line"></div>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div id="login-form" class="login-form">
+                <div class="form__header">
+                    <h3 class="form__heading">Đăng nhập</h3>
+                </div>
+                <div class="form__body">
+                    <div class="form__group">
+                        <input class="form__input" type="text" id="usernameLogin" name="username">
+                        <label class="form__label" for="usernameLogin">Username*</label>
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form__group">
+                        <input class="form__input" type="password" id="passwordLogin" name="password">
+                        <label class="form__label" for="passwordLogin">Password</label>
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+                <div class="form__aside checkbox-rememberme">
+                    <input class="form__checkbox" type="checkbox" id="rememberme" name="rememberme">
+                    <label for="rememberme" class="checkbox__text">Nhớ mật khẩu</label>
+                </div>
+                <div class="form__control">
+                    <button class="btn btn-back">Trở lại</button>
+                    <button class="btn btn-login">Đăng nhập</button>
+                </div>
+                <div class="form__socials">
+                    <a href="#" class="btn form__socials-item facebook-color">
+                        <i class="ti-facebook form__socials-icon "></i>
+                        <span class="form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="btn form__socials-item google-color">
+                        <i class="ti-google form__socials-icon"></i>
+                        <span class="form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane">
+            <div class="register-form">
+                <div class="form__header">
+                    <h3 class="form__heading">Đăng ký</h3>
+                </div>
+                <div class="form__body">
+                    <div class="form__group">
+                        <input class="form__input" type="text" id="usernameRegister" name="username" required>
+                        <label class="form__label" for="usernameRegister">Username</label>
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form__group">
+                        <input class="form__input" type="password" id="passwordRegister" name="password" required>
+                        <label class="form__label" for="passwordRegister">Password</label>
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form__group">
+                        <input class="form__input" type="password" id="repassword" name="password" required>
+                        <label class="form__label" for="repassword">Repassword</label>
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+                <div class="form__aside">
+                    <input class="form__checkbox" type="checkbox" id="policy" name="policy">
+                    <label for="rememberme" class="checkbox__text">
+                        Hãy đọc kỹ, đồng ý với <a href="#">Điều khoản</a> và các <a href="#">Chính sách</a> của chúng tôi.
+                    </label>
+                </div>
+                <div class="form__control">
+                    <button class="btn btn-back">Trở lại</button>
+                    <button class="btn btn-register">Đăng Ký</button>
+                </div>
+                <div class="form__socials">
+                    <a href="#" class="btn form__socials-item facebook-color">
+                        <i class="ti-facebook form__socials-icon "></i>
+                        <span class="form__socials-title">Kết nối với Facebook</span>
+                    </a>
+                    <a href="#" class="btn form__socials-item google-color">
+                        <i class="ti-google form__socials-icon"></i>
+                        <span class="form__socials-title">Kết nối với Google</span>
+                    </a>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document)
+        const $$= document.querySelectorAll.bind(document)
+
+        const tabs = $$('.tab-item');
+        const tabPanes = $$('.tab-pane')
+        const tabActive = $('.tab-item.active')
+        const tabLine = $('.tab-line')
+
+        tabLine.style.left = tabActive.offsetLeft + 'px';
+        tabLine.style.width = tabActive.offsetWidth + 'px';
+        tabs.forEach((tab,index) => {
+            const pane = tabPanes[index]
+            tab.onclick = function(e){
+                const tabActive = $('.tab-item.active')
+                const paneActive = $('.tab-pane.active')
+                if(tabActive){
+                    tabActive.classList.remove('active')
+                }
+                if(paneActive){
+                    paneActive.classList.remove('active')
+                }
+                tab.classList.add('active')
+                pane.classList.add('active')
+                tabLine.style.left = tab.offsetLeft + 'px'
+                tabLine.style.width = tab.offsetWidth + 'px'
+            }
+        });
+        
+        
+        function FormValidate(options){
+            const form = $(options.form)
+            const selectorRules = {}
+
+
+            function getParentElement(selector){
+                return $(selector).parentElement
+            }
+
+            options.rules.forEach(function(rule) {
+                if(selectorRules[rule.selector])
+                {
+                    selectorRules[rule.selector].push(rule.message)
+                }
+                else{
+                    selectorRules[rule.selector] = [rule.message]
+                }
+            });
+            var i;
+            
+            function validate(selector){
+                const length = selectorRules[selector].length
+                var errorMsg
+                for (i = 0 ; i< length; ++i ) {
+                    errorMsg = selectorRules[selector][i]()
+                    if(errorMsg){
+                        break
+                    }
+                }
+                const parentElement = getParentElement(selector)
+                const errorElement = parentElement.querySelector(options.errorSelector)
+                if(errorMsg){
+                    parentElement.classList.add('error')
+                    errorElement.innerText = errorMsg
+                }
+                else{
+                    parentElement.classList.remove('error')
+                    errorElement.textContent = ' '
+                }
+            }
+            for (const selector in selectorRules) {
+                const inputElements = $$(selector)
+                inputElements.forEach(function(inputElement){
+                    inputElement.oninput = function(){
+                        validate(selector)
+                    }
+
+                    inputElement.onblur = function(){
+                        validate(selector)
+                    }
+                })
+            }  
+        }
+        FormValidate.isRequired = function(selector, message){
+            return{
+                selector: selector,
+                message : function(){
+                    const inputElement = $(selector)
+                    return inputElement.value ? undefined : message || 'Không được để trống'
+                }
+            }
+        }
+        FormValidate.isEmail = function(selector, message){
+            return{
+                selector: selector,
+                message: function(){
+                    const inputElement = $(selector)
+                    var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    return regex.test(inputElement.value) ? undefined : message || 'Email không dúng định dạng' 
+                }
+            }
+        }
+        FormValidate.isMinLength = function(selector, length, message){
+            return{
+                selector: selector,
+                message: function(){
+                    const inputElement = $(selector)
+                    return inputElement.value.length < length ? undefined : message || `Tổi thiểu ${length} ký tự`
+                }
+            }
+        }
+        FormValidate.isMaxLength = function(selector, length,message){
+            return{
+                selector: selector,
+                message: function(){
+                    const inputElement = $(selector)
+                    return inputElement.value <= length ? undefined : message || `Tối đa ${length} ký tự`  
+                }
+            }
+        }
+        FormValidate.isConfirm = function(selector, getValue,message){
+            return{
+                selector: selector,
+                message: function(){
+                    const inputElement = $(selector)
+                    return inputElement.value === getValue() ? undefined : message || `Không trùng khớp`  
+                }
+            }
+        }
+
+        const options = {
+            form: '#login-form',
+            errorSelector: '.error-msg',
+            rules: [FormValidate.isRequired('#usernameLogin'),
+                    FormValidate.isRequired('#passwordLogin'),
+                    FormValidate.isEmail('#usernameLogin')]
+        }
+        FormValidate(options)
+
+
+        const formInputs= $$('.form__input')
+        const formLabels = $$('.form__label')
+
+        formInputs.forEach((formInput,index) => {
+            const formLabel = formLabels[index]
+            formInput.onclick = function(e){
+                formLabel.classList.add('input-focus-visile')
+            }
+        });
+
+       
+
+    </script>
+</body>
+</html>

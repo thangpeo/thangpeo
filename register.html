@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/font/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal__body">
+            <div class="tabs">
+                <div class="tab-item active">Đăng nhập</div>
+                <div class="tab-item">Đăng ký</div>
+                <div class="tab-line"></div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div id="login-form" class="login-form">
+                        <div class="form__header">
+                            <h3 class="form__heading">Đăng nhập</h3>
+                        </div>
+                        <div class="form__body">
+                            <div class="form__group">
+                                <input class="form__input" type="text" id="usernameLogin" name="username">
+                                <label class="form__label" for="usernameLogin">Username*</label>
+                                <span class="error-msg"></span>
+                            </div>
+                            <div class="form__group">
+                                <input class="form__input" type="password" id="passwordLogin" name="password">
+                                <label class="form__label" for="passwordLogin">Password</label>
+                                <span class="error-msg"></span>
+                            </div>
+                        </div>
+                        <div class="form__aside checkbox-rememberme">
+                            <input class="form__checkbox" type="checkbox" id="rememberme" name="rememberme">
+                            <label for="rememberme" class="checkbox__text">Nhớ mật khẩu</label>
+                        </div>
+                        <div class="form__control">
+                            <button class="btn btn-back">Trở lại</button>
+                            <button class="btn btn-login">Đăng nhập</button>
+                        </div>
+                        <div class="form__socials">
+                            <a href="#" class="btn form__socials-item facebook-color">
+                                <i class="ti-facebook form__socials-icon "></i>
+                                <span class="form__socials-title">Kết nối với Facebook</span>
+                            </a>
+                            <a href="#" class="btn form__socials-item google-color">
+                                <i class="ti-google form__socials-icon"></i>
+                                <span class="form__socials-title">Kết nối với Google</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane">
+                    <div class="register-form">
+                        <div class="form__header">
+                            <h3 class="form__heading">Đăng ký</h3>
+                        </div>
+                        <div class="form__body">
+                            <div class="form__group">
+                                <input class="form__input" type="text" id="usernameRegister" name="username" required>
+                                <label class="form__label" for="usernameRegister">Username</label>
+                                <span class="error-msg"></span>
+                            </div>
+                            <div class="form__group">
+                                <input class="form__input" type="password" id="passwordRegister" name="password" required>
+                                <label class="form__label" for="passwordRegister">Password</label>
+                                <span class="error-msg"></span>
+                            </div>
+                            <div class="form__group">
+                                <input class="form__input" type="password" id="repassword" name="password" required>
+                                <label class="form__label" for="repassword">Repassword</label>
+                                <span class="error-msg"></span>
+                            </div>
+                        </div>
+                        <div class="form__aside">
+                            <input class="form__checkbox" type="checkbox" id="policy" name="policy">
+                            <label for="rememberme" class="checkbox__text">
+                                Hãy đọc kỹ, đồng ý với <a href="#">Điều khoản</a> và các <a href="#">Chính sách</a> của chúng tôi.
+                            </label>
+                        </div>
+                        <div class="form__control">
+                            <button class="btn btn-back">Trở lại</button>
+                            <button class="btn btn-register">Đăng Ký</button>
+                        </div>
+                        <div class="form__socials">
+                            <a href="#" class="btn form__socials-item facebook-color">
+                                <i class="ti-facebook form__socials-icon "></i>
+                                <span class="form__socials-title">Kết nối với Facebook</span>
+                            </a>
+                            <a href="#" class="btn form__socials-item google-color">
+                                <i class="ti-google form__socials-icon"></i>
+                                <span class="form__socials-title">Kết nối với Google</span>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

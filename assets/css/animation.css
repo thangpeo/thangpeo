@@ -1,0 +1,36 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes moveFromLeft {
+    from{
+        left: -100%;
+        right: 100%;
+    }
+    to{
+        right: 0;
+        left: 0;
+    }
+}
+@keyframes moveFromRight {
+    from{
+        right: -100%;
+        left: 100%;
+    }
+    to{
+        right: 0;
+        left: 0;
+    }
+}
